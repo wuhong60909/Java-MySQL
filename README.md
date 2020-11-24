@@ -1,14 +1,17 @@
-# Getting Started
+# MySQL新版 JDBC Driver 設定
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+1. Driver
 
-## Folder Structure
+   ```java
+   String driver = "com.mysql.jdbc.Driver"; 改成
+   String driver = "com.mysql.cj.jdbc.Driver";
+   ```
 
-The workspace contains two folders by default, where:
+2. 無法辨識時區，加上serverTimezone的相關設定(CST是中原標準時間)
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+   ```java
+   url = "jdbc:mysql://localhost:3306/myDB" 改成
+   url = "jdbc:mysql://localhost:3306/myDB?serverTimezone=CST"
+   ```
 
-## Dependency Management
-
-The `JAVA DEPENDENCIES` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-pack/blob/master/release-notes/v0.9.0.md#work-with-jar-files-directly).
+Reference: [MySQL新版 JDBC Driver 設定](https://carrie-lai.github.io/post/mysql_new_jdbcdriver/)
